@@ -1,0 +1,2 @@
+export const EXPIRY_DURATION_IN_SECONDS = 1500;
+export const SET_TOKEN_EXPIRED = 10;

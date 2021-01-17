@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="float: left;">to-do-list</ion-title>
+    <ion-button style="float: right;" (click)="logout()">
+      logout
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content [fullscreen]="true">
+    <div class="container">
+      <div class="row main">
+        <div class="col-md-6">
+          <div class="main-login main-center">
+            <h2>Add New</h2>
+            <form [formGroup]="addNewForm">
+              <div class="form-group">
+                <label for="name" class="cols-sm-2 control-label">Name</label>
+                <div class="cols-sm-10">
+                  <input type="text" class="form-control" formControlName="name" placeholder="Enter your Name"/>
+                  <p class="err-msg" *ngIf="addNewForm.controls.name.touched && addNewForm.controls.name.hasError('required')">{{ errors.requiredError.name }}</p>
+                </div>
+              </div>
+    
+              <div class="form-group">
+                <label for="username" class="cols-sm-2 control-label">Description</label>
+                <div class="cols-sm-10">
+                  <textarea cols="70" rows="10"  formControlName="description"></textarea>
+                  <p class="err-msg" *ngIf="addNewForm.controls.description.touched && addNewForm.controls.description.hasError('required')">{{ errors.requiredError.description }}</p>
+                </div>
+              </div>
+              <div class="form-group ">
+                <button class="btn btn-success btn-lg btn-block login-button" type="submit" *ngIf="!isEdit" (click)="addNewTodo()">
+                  Add New
+                </button>
+                <button class="btn btn-success btn-lg btn-block login-button" type="submit" *ngIf="isEdit" (click)="updateNewTodo()">
+                  Update
+                </button>
+                <button class="btn btn-warning btn-lg btn-block login-button" type="submit" *ngIf="isEdit" (click)="cancel()">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="main-login main-center">
+            <h2>Login</h2>
+            <ion-row>
+              <ion-col>
+                <ion-row>
+                  <ion-col col="12" *ngFor="let toDo of todoLists">
+                    <p>
+                      name: {{ toDo.name}}
+                      <a href="javascript:void(0)" >
+                        <span class="glyphicon glyphicon-pencil" (click)="edit(toDo)"></span>
+                      </a>
+                      <a href="javascript:void(0)" (click)="delete(toDo?.uuid)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                      </a>
+                      
+                    </p>
+                    <p>Description: {{ toDo.description }} </p>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+  
+</ion-content>
