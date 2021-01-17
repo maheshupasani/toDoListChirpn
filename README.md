@@ -26,3 +26,13 @@ npm run install
 ```bash
 npm run start
 ```
+
+Note: For backend,please create .env file in root folder
+
+```bash
+MYSQL_DATABASE=testdb
+MYSQL_PASSWORD=
+MYSQL_USER=root
+MYSQL_HOST=127.0.0.1
+NODE_ENV=development
+```
