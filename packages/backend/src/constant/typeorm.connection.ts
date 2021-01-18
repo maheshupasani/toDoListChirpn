@@ -20,7 +20,7 @@ export function connectTypeORM(config: ConfigService): MysqlConnectionOptions {
     password: config.get(MYSQL_PASSWORD),
     database: config.get(MYSQL_DATABASE),
     entities: [User, TokenCache, ToDoList],
-    synchronize: false,
+    synchronize: true,
     logging: false,
   };
 }
