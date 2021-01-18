@@ -6,7 +6,7 @@ To start this project,I have tried to use Monorepo similar structure.
 Firstly,there is folder name - packages which consist of two projects(Frontend,Backend).
 
 ```bash
-npm i -g @nestjs/cli
+npm i -g @ionic/cli
 ```
 
 Go to packages/to-do-frontend
@@ -20,6 +20,9 @@ npm run start
 ```
 
 Go to packages/backend
+```bash
+npm i -g @nestjs/cli
+```
 
 ```bash
 npm run install
