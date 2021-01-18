@@ -5,7 +5,9 @@ To start this project,I have tried to use Monorepo similar structure.
 ## Installation
 Firstly,there is folder name - packages which consist of two projects(Frontend,Backend).
 
-
+```bash
+npm i -g @nestjs/cli
+```
 
 Go to packages/to-do-frontend
 
